@@ -12,8 +12,6 @@
 
 </div>
 
-**PDF Report**: 
-
 ## Algorithm Explanation
 
 
