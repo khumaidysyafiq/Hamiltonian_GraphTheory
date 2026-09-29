@@ -98,7 +98,7 @@ For graphs that pass necessary checks, the validator executes a pruned depth-fir
 
 # Sample Cases
 
-## Case 1: Valid Solvable Dungeon (`cluster` Archetype, $N=6$)
+### Case 1: Valid Solvable Dungeon (`cluster` Archetype, $N=6$)
 ```text
 Executed command: python dungeon.py --file sample_valid_dungeon.txt --validate
 ======================================================================================
@@ -140,7 +140,7 @@ Execution Time: 1.33 ms
 
 ---
 
-## Case 2: Valid Dense Dungeon Satisfying Ore's Theorem ($N=7$)
+### Case 2: Valid Dense Dungeon Satisfying Ore's Theorem ($N=7$)
 ```text
 Executed command: python dungeon.py --generate --rooms 7 --density 0.5 --archetype backbone_chords --seed 77
 ======================================================================================
@@ -178,7 +178,7 @@ Execution Time: 1.21 ms
 
 ---
 
-## Case 3: Invalid Dungeon — 3-Way Cut-Vertex Bottleneck ($N=7$)
+### Case 3: Invalid Dungeon — 3-Way Cut-Vertex Bottleneck ($N=7$)
 > **Mathematical Proof of Failure:** Room 1 acts as a central bottleneck connecting 3 isolated wings. Removing Room 1 results in $c(G - \{1\}) = 3$ components. By the Articulation Component Bound Theorem, any Hamiltonian path satisfies $c(G - S) \le |S| + 1 = 2$. Since $3 > 2$, a Hamiltonian path cannot exist.
 ```text
 Executed command: python dungeon.py --invalid bottleneck --rooms 7
@@ -209,7 +209,7 @@ Execution Time: 0.05 ms
 
 ---
 
-## Case 4: Invalid Dungeon — Dead-End Bound Exceeded ($N=6$, 3 Leaves)
+### Case 4: Invalid Dungeon — Dead-End Bound Exceeded ($N=6$, 3 Leaves)
 > **Mathematical Proof of Failure:** Rooms 2, 3, and 4 each have degree 1 (dead ends). A simple open path has exactly 2 terminal rooms (start and end). Therefore, a graph with 3 or more degree-1 vertices cannot have a Hamiltonian path.
 ```text
 Executed command: python dungeon.py --invalid dead_ends --rooms 6
@@ -241,7 +241,7 @@ Execution Time: 0.06 ms
 
 ---
 
-## Case 5: Invalid Dungeon — Disconnected Chambers ($N=6$)
+### Case 5: Invalid Dungeon — Disconnected Chambers ($N=6$)
 ```text
 Executed command: python dungeon.py --invalid disconnected --rooms 6
 ======================================================================================
@@ -272,7 +272,7 @@ Execution Time: 0.04 ms
 
 ---
 
-## Case 6: Invalid Dungeon — Bipartite Size Mismatch $K_{2, 5}$ ($N=7$)
+### Case 6: Invalid Dungeon — Bipartite Size Mismatch $K_{2, 5}$ ($N=7$)
 > **Mathematical Proof of Failure:** The dungeon forms a bipartite graph with partition sets $A=\{1, 2\}$ and $B=\{3, 4, 5, 6, 7\}$. Any path must alternate between $A$ and $B$. The maximum number of vertices visitable starting in $B$ is $|A| + |A| + 1 = 2 \times 2 + 1 = 5 < 7$. Thus, visiting all 7 rooms without reusing tunnels is mathematically impossible.
 ```text
 Executed command: python dungeon.py --invalid bipartite_mismatch --rooms 7
