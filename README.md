@@ -27,7 +27,7 @@ Therefore:
 
 ---
 
-## 2. Procedural Dungeon Generator [`dungeon_generator.py`](dungeon_generator.py)
+## 2. Procedural Dungeon Generator [`dungeon_generator.py`](Algorithms/dungeon_generator.py)
 
 ### 2.1 Design Objectives
 1. **Solvability Guarantee (in Standard Mode):** Dungeons generated for regular gameplay must contain at least one valid clearing path.
@@ -54,7 +54,7 @@ The generator builds dungeons across multiple architectural archetypes:
 
 ---
 
-## 3. Dungeon Validator [`dungeon_validator.py`](dungeon_validator.py)
+## 3. Dungeon Validator [`dungeon_validator.py`](Algorithms/dungeon_validator.py)
 
 The validator implements a multi-phase verification pipeline combining theoretical checks from the lecture slides, structural pruning, and an exact backtracking search.
 
